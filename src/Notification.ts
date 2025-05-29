@@ -1,6 +1,7 @@
 import { User } from "./User";
+import { Order } from "./Order";
 
-export class Notification {
+export class Notification extends User {
     private user: User;
     private message: string;
     private type: string; 

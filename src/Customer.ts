@@ -1,4 +1,5 @@
 
+import { Address } from "./Address";
 import { User } from "./User";
 
 export class Customer extends User {

@@ -1,8 +1,9 @@
 import { User } from "./User";
+import { Order } from "./Order";
 
  export class Admin extends User{
     private users: User[];
-    private orders: Order[];
+    private orders: Order[] = [];
     private refunds: Refund[];
 
     constructor(userid: number, name: string, email:string, password: string ){

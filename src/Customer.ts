@@ -1,6 +1,8 @@
 
 import { Address } from "./Address";
 import { User } from "./User";
+import { Order } from "./Order";
+import { OrderItem } from "./OrderItem";
 
 export class Customer extends User {
 

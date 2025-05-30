@@ -28,7 +28,7 @@ export class Product {
     }
 
     getProductID(): number {
-        return this.productID;
+        return this.productID;  -78-
     }
 
     getName(): string {

@@ -1,6 +1,7 @@
 import { User } from "./User";
 import { Order } from "./Order";
 
+
 export class Notification extends User {
     private user: User;
     private message: string;
@@ -20,6 +21,8 @@ export class Notification extends User {
         this.createdAt = createdAt;
         this.isRead = isRead;
     }
+    super
+
     getUser(): User {
         return this.user;
     }

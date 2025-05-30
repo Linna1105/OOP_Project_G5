@@ -1,8 +1,7 @@
 import { User } from "./User";
 import { Order } from "./Order";
 
-
-export class Notification extends User {
+export class Notification{
     private user: User;
     private message: string;
     private type: string; 
@@ -12,7 +11,8 @@ export class Notification extends User {
     private isRead: boolean;
     
 
-    constructor(user: User, message: string,type:string, title: string, relatedOrder: OES_fbo_render_mipmap, createdAt: Date, isRead: boolean) {
+    constructor(user: User, message: string,type:string, title: string, relatedOrder: Order, createdAt: Date, isRead: boolean) {
+     
         this.user = user;
         this.message = message;
         this.type = type;
@@ -21,8 +21,6 @@ export class Notification extends User {
         this.createdAt = createdAt;
         this.isRead = isRead;
     }
-    super
-
     getUser(): User {
         return this.user;
     }
@@ -41,7 +39,7 @@ export class Notification extends User {
     getCreatedAt(): Date {
         return this.createdAt;
     }
-    isRead(): boolean {
+    isReads(): boolean {
         return this.isRead;
     }
 

@@ -3,6 +3,7 @@ import { Address } from "./Address";
 import { User } from "./User";
 import { Order } from "./Order";
 import { OrderItem } from "./OrderItem";
+import { Refund } from "./Refund";
 
 export class Customer extends User {
 

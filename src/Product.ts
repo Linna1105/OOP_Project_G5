@@ -82,7 +82,7 @@ export class Product {
 
     setSeller(seller: Seller): void {
         this.seller = seller;
-        console.log(`Product seller updated to ${this.seller.getName()}.`);
+        console.log(`Product seller updated to ${this.seller.name}.`);
     }
 
     getFinalPrice(): number {

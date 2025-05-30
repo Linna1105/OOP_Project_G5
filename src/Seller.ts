@@ -6,7 +6,7 @@ import { OrderItem } from "./OrderItem";
 
 export class Seller extends User {
     private storeName: string;
-    private address: Address;
+    address: Address;
     products: Product[] = [];
     orders: Order[] = [];
 
@@ -38,21 +38,21 @@ export class Seller extends User {
 
     setAddress(address: Address): void {
         this.address = address;
-        console.log(`Address updated to ${this.address.street}, ${this.address.city}, ${this.address.state}, ${this.address.zipCode}.`);
+        console.log(`Address updated to ${this.address.getStreet}, ${this.address.getCity}, ${this.address.getState}, ${this.address.getZipCode}.`);
     }
 
     addProduct(product: Product): void {
         this.products.push(product);
-        console.log(`Product "${product.name}" added to ${this.storeName}.`);
+        console.log(`Product "${product.getName}" added to ${this.storeName}.`);
     }
 
     updateStock(product: Product, quantity: number): void {
-        const prod = this.products.find(p => p.productID === product.productID);
+        const prod = this.products.find(p => p.getProductID() === product.getProductID());
         if (prod) {
-            prod.stockQuantity = quantity;
-            console.log(`Stock updated for "${prod.name}" to ${quantity}.`);
+            prod.setStockQuantity(quantity);
+            console.log(`Stock updated for "${prod.getName()}" to ${quantity}.`);
         } else {
-            console.log(`Product with ID ${product.productID} not found.`);
+            console.log(`Product with ID ${product.getProductID()} not found.`);
         }
     }
 
@@ -63,14 +63,14 @@ export class Seller extends User {
     }
 
     processShipment(orderItem: OrderItem): void {
-        // Find the order containing this order item and mark as shipped
         const order = this.orders.find(o =>
             o.items.some(item => item === orderItem)
         );
-        if (order && orderItem.shipment && orderItem.shipment.trackingNumber === "") {
-            orderItem.shipment.trackingNumber = "TRACK" + Math.floor(Math.random() * 1000000);
-            orderItem.shipment.status = "Shipped";
-            console.log(`Order item for product "${orderItem.product.name}" has been shipped.`);
+        if (order && orderItem.getShipment() && orderItem.getShipment().getTrackingNumber() === "") {
+            orderItem.getShipment().setTrackingNumber("TRACK" + Math.floor(Math.random() * 1000000));
+            // If you have a setStatus method, use it here
+            // orderItem.getShipment().setStatus("Shipped");
+            console.log(`Order item for product "${orderItem.getProduct().getName()}" has been shipped.`);
         } else if (order) {
             console.log(`Order item already shipped.`);
         } else {

@@ -29,7 +29,7 @@ import { Order } from "./Order";
     }
     public manageOrder(action:string, order:string):void{
         if(action === "add"){
-            this.orders.push(order);
+            this.orders.push(this.orders);
             console.log(`Admin added order: ${order}`);
             
         }else if(action === "remove"){

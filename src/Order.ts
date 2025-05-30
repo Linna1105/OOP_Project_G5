@@ -1,11 +1,11 @@
-import { User } from "./User";
+
 import { Customer } from "./Customer";
 import { OrderItem } from "./OrderItem";
 import { Refund } from "./Refund";
 
 
 
-export class Order extends User {
+export class Order{
     static orders: Order[] = [];
     orderID: number;
     customer: Customer;
@@ -13,7 +13,6 @@ export class Order extends User {
     totalAmount: float;
 
     constructor(orderID: number, customer: Customer, status: string, totalAmount: float) {
-        super(customer, "", "", ""); 
         this.orderID = orderID;
         this.customer = customer;
         this.status = status;

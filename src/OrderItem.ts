@@ -1,25 +1,23 @@
-import { User } from "./User";
 import { Product } from "./Product";
 import { Shipment } from "./Shipment";
 import { DeliveryOption } from "./DeliveryOption";
 
-export class OrderItem extends User {
+export class OrderItem  {
     private product: Product;
     private quantity: number;
     private shipment: Shipment;
     private deliveryOption: DeliveryOption;
 
     constructor(
-        userID: number,
-        name: string,
-        email: string,
-        password: string,
         product: Product,
         quantity: number,
         shipment: Shipment,
         deliveryOption: DeliveryOption
     ) {
+<<<<<<< HEAD
         super(userID, name, email, password);
+=======
+>>>>>>> 65cef5ef1187dd6173933263d1f3a8950b35dfc6
         this.product = product;
         this.quantity = quantity;
         this.shipment = shipment;
@@ -64,16 +62,10 @@ export class OrderItem extends User {
         let baseCost = this.product.getFinalPrice() * this.quantity;
         let deliveryCost = 0;
 
-        switch (this.deliveryOption) {
-            case DeliveryOption.STANDARD:
-                deliveryCost = 5.99;
-                break;
-            case DeliveryOption.EXPRESS:
-                deliveryCost = 15.99;
-                break;
-            case DeliveryOption.NEXT_DAY:
-                deliveryCost = 25.99;
-                break;
+        if (this.deliveryOption === DeliveryOption.Standard) {
+            deliveryCost = 5;
+        } else if (this.deliveryOption === DeliveryOption.Express) {
+            deliveryCost = 10;
         }
 
         return baseCost + deliveryCost;
@@ -85,8 +77,8 @@ export class OrderItem extends User {
             Product: ${this.product.isAvailable()}
             Quantity: ${this.quantity}
             Delivery Option: ${this.deliveryOption}
-            Shipment Address: ${this.shipment.getAddress()}
-            Shipment Status: ${this.shipment.getStatus()}
+            Shipment Address: ${this.shipment}
+            Shipment Status: ${this.shipment}
             Total Cost: $${this.getTotalCost().toFixed(2)}
         `;
     }

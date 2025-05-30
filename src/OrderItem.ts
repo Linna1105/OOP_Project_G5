@@ -14,6 +14,10 @@ export class OrderItem  {
         shipment: Shipment,
         deliveryOption: DeliveryOption
     ) {
+<<<<<<< HEAD
+        super(userID, name, email, password);
+=======
+>>>>>>> 65cef5ef1187dd6173933263d1f3a8950b35dfc6
         this.product = product;
         this.quantity = quantity;
         this.shipment = shipment;
@@ -25,7 +29,7 @@ export class OrderItem  {
         }
     }
 
-  getProduct(): Product {
+    getProduct(): Product {
         return this.product;
     }
 
@@ -53,7 +57,7 @@ export class OrderItem  {
         this.deliveryOption = deliveryOption;
     }
 
-        // Calculate total cost
+    // Calculate total cost
     getTotalCost(): number {
         let baseCost = this.product.getFinalPrice() * this.quantity;
         let deliveryCost = 0;

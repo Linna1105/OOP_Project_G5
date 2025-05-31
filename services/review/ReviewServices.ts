@@ -10,7 +10,7 @@ export class ReviewServices {
     }
 
     getReviewSummary(review: Review): string {
-        return `Review #${review.getReviewId()} by ${review.getCustomer().getName()} for ${review.getProduct().getName()}:
+        return `Review #${review.getReviewId()} by ${review.getCustomer().name} for ${review.getProduct().getName()}:
 Rating: ${review.getRating()}
 Comment: ${review.getComment()}
 Date: ${review.getDate().toLocaleDateString()}`;

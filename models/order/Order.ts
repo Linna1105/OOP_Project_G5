@@ -1,4 +1,4 @@
-import { Customer } from "../Customer";
+import { Customer } from "../user/Customer";
 import { OrderItem } from "./OrderItem";
 
 export class Order {

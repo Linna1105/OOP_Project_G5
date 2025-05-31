@@ -1,5 +1,5 @@
 import { Product } from "../product/Product";
-import { Customer } from "../Customer";
+import { Customer } from "../user/Customer";
 
 export class Review {
     private reviewId: number;

@@ -17,7 +17,7 @@ export class Seller extends User {
         storeName: string,
         address: Address
     ) {
-        super(userID, name, email, password);
+        super(userID, name, email, password, 'Seller');
         this.storeName = storeName;
         this.address = address;
     }

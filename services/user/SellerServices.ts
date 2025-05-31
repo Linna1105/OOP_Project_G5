@@ -1,5 +1,5 @@
 import { Seller } from "../../models/user/Seller";
-import { Product } from "../../models/Product";
+import { Product } from "../../models/product/Product";
 import { Order } from "../../models/Order";
 import { OrderItem } from "../../models/OrderItem";
 

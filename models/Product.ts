@@ -1,4 +1,4 @@
-import { Seller } from "./Seller";
+import { Seller } from "./user/Seller";
 
 export class Product {
     private productID: number;

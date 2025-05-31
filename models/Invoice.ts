@@ -1,4 +1,4 @@
-import { User } from "./User";
+import { User } from "./user/User";
 import { Order } from "./Order";
 export  class Invoice extends User {
      

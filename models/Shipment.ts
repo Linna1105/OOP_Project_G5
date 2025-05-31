@@ -1,5 +1,5 @@
 import { DeliveryOption } from "./DeliveryOption";
-import { Address } from "./Address";
+import { Address } from "./address/Address";
 
 export class Shipment {
     private shipmentID: number;

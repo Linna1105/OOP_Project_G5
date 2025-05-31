@@ -1,5 +1,5 @@
 import { User } from "./User";
-import { Address } from "../Address";
+import { Address } from "../address/Address";
 import { Product } from "../product/Product";
 import { Order } from "../Order";
 

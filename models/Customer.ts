@@ -1,5 +1,5 @@
 
-import { Address } from "./Address";
+import { Address } from "./address/Address";
 import { User } from "./user/User";
 import { Order } from "./Order";
 import { OrderItem } from "./OrderItem";

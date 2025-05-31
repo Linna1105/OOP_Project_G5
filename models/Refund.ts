@@ -1,4 +1,4 @@
-import { OrderItem } from "./OrderItem";
+import { OrderItem } from "./order/OrderItem";
 export class Refund{
     private refundId :number;
     private orderItem :OrderItem;

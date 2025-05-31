@@ -1,4 +1,4 @@
-import { Order } from "./Order";
+import { Order } from "./order/Order";
 
 class Payment{
     private paymentId: number;

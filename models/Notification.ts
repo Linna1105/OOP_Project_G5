@@ -1,5 +1,5 @@
 import { User } from "./user/User";
-import { Order } from "./Order";
+import { Order } from "./order/Order";
 
 export class Notification{
     private user: User;

@@ -1,8 +1,8 @@
 
 import { Address } from "./address/Address";
 import { User } from "./user/User";
-import { Order } from "./Order";
-import { OrderItem } from "./OrderItem";
+import { Order } from "./order/Order";
+import { OrderItem } from "./order/OrderItem";
 import { Refund } from "./Refund";
 
 export class Customer extends User {
@@ -12,6 +12,13 @@ export class Customer extends User {
     constructor(userID: number, name: string, email: string, password: string, shippingAddress?: Address) {
         super(userID, name, email, password);
         this.shippingAddress = shippingAddress || { street: "", city: "", zipCode: "", country: "" };
+    }
+
+    getName(): string {
+        return this.name;   
+    }
+    setName(name: string): void {
+        this.name = name;
     }
 
     browseProducts(): void {

@@ -1,4 +1,4 @@
-import { DeliveryOption } from "./DeliveryOption";
+import { DeliveryOption } from "./Delivery/DeliveryOption";
 import { Address } from "./address/Address";
 
 export class Shipment {

@@ -1,4 +1,5 @@
 import { Seller } from "../../models/user/Seller";
+import { Discount } from "../product/Discount";
 
 export class Product {
     private productID: number;
@@ -8,6 +9,7 @@ export class Product {
     private discount: number;
     private stockQuantity: number;
     private seller: Seller;
+    private discounts: Discount[] = [];
 
     constructor(
         productID: number,
@@ -28,60 +30,70 @@ export class Product {
     }
 
     getProductID(): number {
-        return this.productID;  
+        return this.productID;
+    }
+
+    setProductID(productID: number): void {
+        this.productID = productID;
     }
 
     getName(): string {
         return this.name;
     }
 
+    setName(name: string): void {
+        this.name = name;
+    }
+
     getCategory(): string {
         return this.category;
+    }
+
+    setCategory(category: string): void {
+        this.category = category;
     }
 
     getPrice(): number {
         return this.price;
     }
 
+    setPrice(price: number): void {
+        this.price = price;
+    }
+
     getDiscount(): number {
         return this.discount;
+    }
+
+    setDiscount(discount: number): void {
+        this.discount = discount;
     }
 
     getStockQuantity(): number {
         return this.stockQuantity;
     }
 
+    setStockQuantity(stockQuantity: number): void {
+        this.stockQuantity = stockQuantity;
+    }
+
     getSeller(): Seller {
         return this.seller;
     }
 
-    setName(name: string): void {
-        this.name = name;
-        console.log(`Product name updated to ${this.name}.`);
-    }
-
-    setCategory(category: string): void {
-        this.category = category;
-        console.log(`Product category updated to ${this.category}.`);
-    }
-
-    setPrice(price: number): void {
-        this.price = price;
-        console.log(`Product price updated to ${this.price}.`);
-    }
-
-    setDiscount(discount: number): void {
-        this.discount = discount;
-        console.log(`Product discount updated to ${this.discount}.`);
-    }
-
-    setStockQuantity(stockQuantity: number): void {
-        this.stockQuantity = stockQuantity;
-        console.log(`Product stock quantity updated to ${this.stockQuantity}.`);
-    }
-
     setSeller(seller: Seller): void {
         this.seller = seller;
-        console.log(`Product seller updated to ${this.seller.name}.`);
+    }
+
+    getDiscounts(): Discount[] {
+        return this.discounts;
+    }
+
+    setDiscounts(discounts: Discount[]): void {
+        this.discounts = discounts;
+    }
+
+    getFinalPrice(): number {
+        return this.price - (this.price * this.discount);
     }
 }

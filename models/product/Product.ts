@@ -1,4 +1,4 @@
-import { Seller } from "./Seller";
+import { Seller } from "../../models/user/Seller";
 
 export class Product {
     public productID: number;
@@ -28,7 +28,7 @@ export class Product {
     }
 
     getProductID(): number {
-        return this.productID; 
+        return this.productID;  
     }
 
     getName(): string {
@@ -83,13 +83,5 @@ export class Product {
     setSeller(seller: Seller): void {
         this.seller = seller;
         console.log(`Product seller updated to ${this.seller.name}.`);
-    }
-
-    getFinalPrice(): number {
-        return this.price - (this.price * this.discount);
-    }
-
-    isAvailable(): boolean {
-        return this.stockQuantity > 0;
     }
 }

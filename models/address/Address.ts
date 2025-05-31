@@ -53,7 +53,5 @@ export class Address {
         this.zipCode = zipCode;
     }
 
-    fullAddress(): string {
-        return `${this.street}, ${this.city}, ${this.state}, ${this.country}, ${this.zipCode}`;
-    }
+   
 }

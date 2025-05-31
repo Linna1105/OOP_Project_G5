@@ -1,7 +1,7 @@
-import { Seller } from "../models/Seller";
-import { Product } from "../models/Product";
-import { Order } from "../models/Order";
-import { OrderItem } from "../models/OrderItem";
+import { Seller } from "../../models/user/Seller";
+import { Product } from "../../models/product/Product";
+import { Order } from "../../models/Order";
+import { OrderItem } from "../../models/OrderItem";
 
 export class SellerServices {
     addProduct(seller: Seller, product: Product): void {

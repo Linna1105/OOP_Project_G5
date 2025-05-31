@@ -1,6 +1,6 @@
 
-import { Address } from "./Address";
-import { User } from "./User";
+import { Address } from "./address/Address";
+import { User } from "./user/User";
 import { Order } from "./Order";
 import { OrderItem } from "./OrderItem";
 import { Refund } from "./Refund";

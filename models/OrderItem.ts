@@ -14,10 +14,6 @@ export class OrderItem  {
         shipment: Shipment,
         deliveryOption: DeliveryOption
     ) {
-<<<<<<< HEAD
-        super(userID, name, email, password);
-=======
->>>>>>> 65cef5ef1187dd6173933263d1f3a8950b35dfc6
         this.product = product;
         this.quantity = quantity;
         this.shipment = shipment;

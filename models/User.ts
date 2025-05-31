@@ -15,4 +15,6 @@ export abstract class User {
 
   // Abstract method for displaying user info
   abstract displayInfo(): string;
+
 }
+

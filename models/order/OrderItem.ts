@@ -1,5 +1,5 @@
 import { Product } from "../product/Product";
-import { Shipment } from "../Shipment";
+import { Shipment } from "../shipment/Shipment";
 import { DeliveryOption } from "../Delivery/DeliveryOption";
 
 export class OrderItem {

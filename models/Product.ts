@@ -1,10 +1,10 @@
 import { Seller } from "./Seller";
 
 export class Product {
-    private productID: number;
+    public productID: number;
     private name: string;
     private category: string;
-    private price: number;
+    public price: number;
     private discount: number;
     private stockQuantity: number;
     private seller: Seller;
@@ -28,7 +28,7 @@ export class Product {
     }
 
     getProductID(): number {
-        return this.productID;  -78-
+        return this.productID; 
     }
 
     getName(): string {

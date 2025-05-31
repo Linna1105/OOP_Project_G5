@@ -1,10 +1,11 @@
 import { OrderItem } from "./OrderItem";
+
 export class Refund{
-    private refundId :number;
-    private orderItem :OrderItem;
-    private amount : number;
-    private refundDate: Date;
-    private status: string;
+    public refundId :number;
+    public orderItem :OrderItem;
+    public amount : number;
+    public refundDate: Date;
+    public status: string;
     
     constructor(refundId: number, orderItem: OrderItem, amount: number, refundDate: Date, status: string) {
         this.refundId = refundId;
@@ -13,7 +14,5 @@ export class Refund{
         this.refundDate = refundDate;
         this.status = status;
     }
-
-
 
 }

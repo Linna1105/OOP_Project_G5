@@ -13,6 +13,10 @@ export class Customer extends User {
         super(userID, name, email, password);
         this.shippingAddress = shippingAddress || { street: "", city: "", zipCode: "", country: "" };
     }
+    displayInfo(): string {
+        return `Customer ${this.userID}: ${this.name} (${this.email})`;
+    }
+
 
     browseProducts(): void {
 
@@ -40,7 +44,7 @@ export class Customer extends User {
     }
     cancelOrderItem(item: OrderItem): Refund {
 
-        console.log(`${this.name} canceled an order item: ${item.product}`);
+        console.log(`${this.name} canceled an order item: ${item.getProduct}`);
         return new Refund();
 
     }

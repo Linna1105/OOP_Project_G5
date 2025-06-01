@@ -1,5 +1,5 @@
-import { DeliveryOption } from "./DeliveryOption";
-import { Address } from "./address/Address";
+import { DeliveryOption } from "../Delivery/DeliveryOption";
+import { Address } from "../address/Address";
 
 export class Shipment {
     private shipmentID: number;
@@ -37,12 +37,10 @@ export class Shipment {
 
     setTrackingNumber(trackingNumber: string): void {
         this.trackingNumber = trackingNumber;
-        console.log(`Tracking number updated to ${this.trackingNumber}.`);
     }
 
     setDeliveryMethod(deliveryMethod: DeliveryOption): void {
         this.deliveryMethod = deliveryMethod;
-        console.log(`Delivery method updated to ${this.deliveryMethod.getType()}.`);
     }
 
     setDestination(destination: Address): void {

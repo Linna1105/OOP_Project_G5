@@ -2,7 +2,7 @@ import { Product } from "./Product";
 import { Shipment } from "./Shipment";
 import { DeliveryOption } from "./DeliveryOption";
 
-export class OrderItem  {
+export class OrderItem {
     private product: Product;
     private quantity: number;
     private shipment: Shipment;
@@ -54,18 +54,14 @@ export class OrderItem  {
     }
 
     // Calculate total cost
+    // ...existing code...
+    // Calculate total cost
     getTotalCost(): number {
         let baseCost = this.product.getFinalPrice() * this.quantity;
-        let deliveryCost = 0;
-
-        if (this.deliveryOption === DeliveryOption.Standard) {
-            deliveryCost = 5;
-        } else if (this.deliveryOption === DeliveryOption.Express) {
-            deliveryCost = 10;
-        }
-
+        let deliveryCost = this.deliveryOption.getFee();
         return baseCost + deliveryCost;
     }
+    // ...existing code...
 
     // Get order details
     getOrderDetails(): string {

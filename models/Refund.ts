@@ -14,6 +14,44 @@ export class Refund{
         this.status = status;
     }
 
+    getRefundId(): number {
+        return this.refundId;
+    }
 
+    getOrderItem(): OrderItem {
+        return this.orderItem;
+    }
+
+    getAmount(): number {
+        return this.amount;
+    }
+
+    getRefundDate(): Date {
+        return this.refundDate;
+    }
+
+    getStatus(): string {
+        return this.status;
+    }
+
+    setStatus(status: string): void {
+        this.status = status;
+    }
+
+    setAmount(amount: number): void {
+        this.amount = amount;
+    }
+
+    setRefundDate(refundDate: Date): void {
+        this.refundDate = refundDate;
+    }
+
+    setOrderItem(orderItem: OrderItem): void {
+        this.orderItem = orderItem;
+    }
+
+    setRefundId(refundId: number): void {
+        this.refundId = refundId;
+    }
 
 }

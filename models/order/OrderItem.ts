@@ -1,6 +1,6 @@
-import { Product } from "./Product";
-import { Shipment } from "./Shipment";
-import { DeliveryOption } from "./DeliveryOption";
+import { Product } from "../product/Product";
+import { Shipment } from "../shipment/Shipment";
+import { DeliveryOption } from "../Delivery/DeliveryOption";
 
 export class OrderItem {
     private product: Product;
@@ -14,15 +14,13 @@ export class OrderItem {
         shipment: Shipment,
         deliveryOption: DeliveryOption
     ) {
+        if (quantity <= 0) {
+            throw new Error('Quantity must be greater than zero');
+        }
         this.product = product;
         this.quantity = quantity;
         this.shipment = shipment;
         this.deliveryOption = deliveryOption;
-
-        // Input validation
-        if (quantity <= 0) {
-            throw new Error('Quantity must be greater than zero');
-        }
     }
 
     getProduct(): Product {
@@ -41,7 +39,6 @@ export class OrderItem {
         return this.deliveryOption;
     }
 
-    // Setter methods
     setQuantity(quantity: number): void {
         if (quantity <= 0) {
             throw new Error('Quantity must be greater than zero');
@@ -53,6 +50,7 @@ export class OrderItem {
         this.deliveryOption = deliveryOption;
     }
 
+<<<<<<< HEAD:models/OrderItem.ts
     // Calculate total cost
     // ...existing code...
     // Calculate total cost
@@ -75,3 +73,11 @@ export class OrderItem {
         `;
     }
 }
+=======
+    getTotalCost(): number {
+        const baseCost = this.product.getFinalPrice() * this.quantity;
+        const deliveryFee = this.deliveryOption ? this.deliveryOption.getFee() : 0;
+        return baseCost + deliveryFee;
+    }
+}
+>>>>>>> e367d5be05fe608a632fff0b2b320a057f1608e6:models/order/OrderItem.ts

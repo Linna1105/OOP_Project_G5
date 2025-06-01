@@ -1,4 +1,4 @@
-import { User } from '../models/User';
+import { User } from '../../models/user/User';
 
 export class UserServices {
   register(user: User): boolean {

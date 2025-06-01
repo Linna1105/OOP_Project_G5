@@ -1,5 +1,5 @@
 import { Customer } from "./Customer";
-import { Product } from "./Product";
+import { Product } from "./product/Product";
 
 class Cart{
     private cartId: number;

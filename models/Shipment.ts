@@ -47,10 +47,10 @@ export class Shipment {
 
     setDestination(destination: Address): void {
         this.destination = destination;
-        console.log(`Destination updated to ${this.destination.fullAddress()}.`);
+        console.log(`Destination updated to ${this.destination.getFullAddress()}.`);
     }
 
     trackShipment(): string {
-        return `Tracking shipment ${this.trackingNumber} to ${this.destination.fullAddress()} via ${this.deliveryMethod.getType()}.`;
+        return `Tracking shipment ${this.trackingNumber} to ${this.destination.getFullAddress()} via ${this.deliveryMethod.getType()}.`;
     }
 }

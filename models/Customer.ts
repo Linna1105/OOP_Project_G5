@@ -48,4 +48,17 @@ export class Customer extends User {
         return new Refund();
 
     }
+    public register(): void {
+        console.log(`${this.name} registered with email: ${this.email}`);
+    }
+
+    public login(): boolean {
+        console.log(`${this.name} logged in.`);
+        return true;
+    }
+
+    public logout(): boolean {
+        console.log(`${this.name} logged out.`);
+        return true;
+    }
 }

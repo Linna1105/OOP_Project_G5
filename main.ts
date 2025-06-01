@@ -1,33 +1,48 @@
 import { Admin } from "./models/Admin";
-import { User } from "./models/User";
-import { Order } from "./models/Order";
-import { Refund } from "./models/Refund";
-import { OrderItem } from "./models/OrderItem"; // NEW
+import { Customer } from "./models/Customer";
+import { Address } from "./models/address/Address";
+import { OrderItem } from "./models/OrderItem";
+import { Product } from "./models/product/Product";
+import { Shipment } from "./models/Shipment";
+import { DeliveryOption, DeliveryType } from "./models/DeliveryOption";
+import { Seller } from "./models/user/Seller";
 
-// Create an Admin
-const admin = new Admin(1, "Super Admin", "admin@example.com", "admin123");
+// Admin
+const admin = new Admin(1, "Admin A", "admin@example.com", "pass");
 
-// Dummy user
-const user = new class extends User {
-    displayInfo(): void {
-        console.log(`User: ${this.name}`);
-    }
-}(2, "Test User", "user@example.com", "pass");
+// Address
+const address = new Address("123 Main St", "Townsville", "Start", "333", "12345");
 
-// Add user
-admin.manageUsers("add", user);
+// Customer
+const customer = new Customer(2, "John Doe", "john@example.com", "password", address);
 
-// Create order item
-const orderItem = new OrderItem(101, "Gaming Mouse", 1, 49.99);
+// Seller
+const seller1 = new Seller(3, "Seller B", "seller@example.com", "sellerpass", "StoreName", address);
 
-// Create refund using required constructor
-const refund = new Refund(
-    1,                   // refundID
-    orderItem,           // orderItem
-    49.99,               // amount
-    new Date(),          // refundDate
-    "Processed"          // status
-);
+// Simulate usage
+customer.register();
+customer.login();
+customer.browseProducts();
+customer.addToCart("Laptop");
+const order = customer.placeOrder();
+customer.writeReview("Laptop", 5, "Great product!");
 
-// Process refund
-admin.manageRefund(refund);
+// Product
+const product = new Product(12, "Laptop", "computer", 1500, 10.21, 22, seller1);
+
+// Shipment (assuming it takes: id, provider, trackingNumber, destination: Address)
+const shipment = new Shipment(2, "FedEx", "2345", address);
+
+// DeliveryOption (make sure DeliveryType is imported from enum or type)
+const deliveryOption = new DeliveryOption(DeliveryType.Express, 2);
+
+// OrderItem
+const item = new OrderItem(product, 2, shipment, deliveryOption);
+
+// Refund
+const refund = customer.cancelOrderItem(item);
+
+// Admin actions
+admin.manageUser(customer, "add");
+admin.viewAllUsers();
+admin.manageRefunds();

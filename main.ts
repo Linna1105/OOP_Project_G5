@@ -1,8 +1,6 @@
 //User
 import { User } from './models/user/User';
 import { UserServices } from './services/user/UserServices';
-
-// Define a concrete subclass of User
 class CustomerUser extends User {
   constructor(userID: number, name: string, email: string, password: string) {
     super(userID, name, email, password, 'Customer');
@@ -13,7 +11,6 @@ class CustomerUser extends User {
   }
 }
 
-// Main simulation
 const userService = new UserServices();
 
 const user1 = new CustomerUser(1, 'Linna', 'linna@gmail.com', 'password123');

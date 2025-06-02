@@ -1,9 +1,10 @@
 import { Order } from "../order/Order";
+import { PaymentMethod } from "./PaymentMethod";
 
 export class Payment {
     private paymentID: number;
     private order: Order;
-    private paymentMethod: string;
+    private paymentMethod: PaymentMethod;
     private amount: number;
     private status: string;
     private paidDate: Date;
@@ -11,7 +12,7 @@ export class Payment {
     constructor(
         paymentID: number,
         order: Order,
-        paymentMethod: string,
+        paymentMethod: PaymentMethod,
         amount: number,
         status: string,
         paidDate: Date
@@ -32,7 +33,7 @@ export class Payment {
         return this.order;
     }
 
-    getPaymentMethod(): string {
+    getPaymentMethod(): PaymentMethod {
         return this.paymentMethod;
     }
 

@@ -2,10 +2,10 @@ import { Seller } from "../../models/user/Seller";
 import { Discount } from "../product/Discount";
 
 export class Product {
-    private productID: number;
+    public productID: number;
     private name: string;
     private category: string;
-    private price: number;
+    public price: number;
     private discount: number;
     private stockQuantity: number;
     private seller: Seller;

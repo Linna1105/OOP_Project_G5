@@ -52,6 +52,9 @@ export class Address {
     setZipCode(zipCode: string): void {
         this.zipCode = zipCode;
     }
+    public getFullAddress(): string {
+        return `${this.country} ${this.street}, ${this.city}, ${this.state} ${this.zipCode}`;
+}
 
    
 }

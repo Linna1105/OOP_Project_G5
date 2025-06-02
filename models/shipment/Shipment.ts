@@ -1,22 +1,26 @@
 import { DeliveryOption } from "../Delivery/DeliveryOption";
 import { Address } from "../address/Address";
+import { ShipmentTracking } from "./ShipmentTracking";
 
 export class Shipment {
     private shipmentID: number;
     private trackingNumber: string;
     private deliveryMethod: DeliveryOption;
     private destination: Address;
+    private tracking?: ShipmentTracking;
 
     constructor(
         shipmentID: number,
         trackingNumber: string,
         deliveryMethod: DeliveryOption,
-        destination: Address
+        destination: Address,
+        tracking?: ShipmentTracking
     ) {
         this.shipmentID = shipmentID;
         this.trackingNumber = trackingNumber;
         this.deliveryMethod = deliveryMethod;
         this.destination = destination;
+        this.tracking = tracking;
     }
 
     getShipmentID(): number {
@@ -35,6 +39,10 @@ export class Shipment {
         return this.destination;
     }
 
+    getTracking(): ShipmentTracking | undefined {
+        return this.tracking;
+    }
+
     setTrackingNumber(trackingNumber: string): void {
         this.trackingNumber = trackingNumber;
     }
@@ -45,5 +53,9 @@ export class Shipment {
 
     setDestination(destination: Address): void {
         this.destination = destination;
+    }
+
+    setTracking(tracking: ShipmentTracking): void {
+        this.tracking = tracking;
     }
 }

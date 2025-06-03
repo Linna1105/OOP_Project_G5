@@ -31,3 +31,5 @@ console.log(user1.displayInfo());
 userService.logout(user2);
 
 //seller
+
+

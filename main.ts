@@ -1,14 +1,22 @@
-//User
+// //User
 import { User } from './models/user/User';
 import { UserServices } from './services/user/UserServices';
+import { Address } from "./models/address/Address";
+import { DeliveryOption } from "./models/Delivery/DeliveryOption";
+import { DeliveryType } from "./models/Delivery/DeliveryType";
+import { Shipment } from "./models/shipment/Shipment";
+import { ShipmentTracking } from "./models/shipment/ShipmentTracking";
+import { ShipmentServices } from "./services/shipment/ShipmentServices";
+import { ShipmentTrackingServices } from "./services/shipment/ShipmentTrackingServices";
+//seller
 class CustomerUser extends User {
-  constructor(userID: number, name: string, email: string, password: string) {
-    super(userID, name, email, password, 'Customer');
-  }
-
-  displayInfo(): string {
-    return `Customer: ${this.name}, Email: ${this.email}`;
-  }
+    constructor(userID: number, name: string, email: string, password: string) {
+        super(userID, name, email, password, 'Customer');
+    }
+    
+    displayInfo(): string {
+        return `Customer: ${this.name}, Email: ${this.email}`;
+    }
 }
 
 const userService = new UserServices();
@@ -30,4 +38,37 @@ console.log(user1.displayInfo());
 
 userService.logout(user2);
 
-//seller
+//Shipment 
+
+
+
+const type: DeliveryType = DeliveryType.Express;
+console.log(type); 
+
+const address = new Address("123 Main St", "Springfield", "IL", "62704", "USA");
+const deliveryOption = new DeliveryOption("Standard", 5);
+
+const shipment = new Shipment(1, "TRACK123", deliveryOption, address);
+const shipmentServices = new ShipmentServices();
+
+shipmentServices.updateTrackingNumber(shipment, "TRACK456");
+
+const newDeliveryOption = new DeliveryOption("Express", 10);
+shipmentServices.updateDeliveryMethod(shipment, newDeliveryOption);
+
+const newAddress = new Address("456 Elm St", "Springfield", "IL", "62705", "USA");
+shipmentServices.updateDestination(shipment, newAddress);
+
+const trackingInfo = shipmentServices.trackShipment(shipment);
+console.log(trackingInfo);
+
+// Shipment tracking
+
+const shipmentTracking = new ShipmentTracking("TRACK456", "In Transit");
+shipmentServices.assignTracking(shipment, shipmentTracking);
+shipmentServices.updateTrackingStatus(shipment, "Delivered");
+
+const trackingServices = new ShipmentTrackingServices();
+console.log(trackingServices.getTrackingInfo(shipmentTracking));
+trackingServices.updateStatus(shipmentTracking, "Arrived at Facility");
+console.log(trackingServices.getTrackingInfo(shipmentTracking));

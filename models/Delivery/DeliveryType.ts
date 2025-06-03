@@ -1,6 +1,7 @@
-export enum DeliveryType {
-    Standard = "standard",
-    Express = "express",
-    SameDay = "sameDay"
+ export enum DeliveryType {
+  Standard = 'Standard',
+  Express = 'Express',
+  SameDay = 'SameDay',
+  Overnight = 'Overnight',
 }
 

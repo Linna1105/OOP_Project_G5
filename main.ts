@@ -42,18 +42,25 @@ userService.logout(user2);
 
 
 
-const type: DeliveryType = DeliveryType.Express;
-console.log(type); 
+const types: DeliveryType[] = [
+  DeliveryType.Express,
+  DeliveryType.Standard,
+  DeliveryType.SameDay,
+  DeliveryType.Overnight
+];
 
+types.forEach((type) => {
+  console.log(type);
+});
 const address = new Address("123 Main St", "Springfield", "IL", "62704", "USA");
-const deliveryOption = new DeliveryOption("Standard", 5);
+const deliveryOption = new DeliveryOption(DeliveryType.Standard, 5);
 
 const shipment = new Shipment(1, "TRACK123", deliveryOption, address);
 const shipmentServices = new ShipmentServices();
 
 shipmentServices.updateTrackingNumber(shipment, "TRACK456");
 
-const newDeliveryOption = new DeliveryOption("Express", 10);
+const newDeliveryOption = new DeliveryOption(DeliveryType.Express, 10);
 shipmentServices.updateDeliveryMethod(shipment, newDeliveryOption);
 
 const newAddress = new Address("456 Elm St", "Springfield", "IL", "62705", "USA");

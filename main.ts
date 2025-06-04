@@ -8,6 +8,7 @@ import { Shipment } from "./models/shipment/Shipment";
 import { ShipmentTracking } from "./models/shipment/ShipmentTracking";
 import { ShipmentServices } from "./services/shipment/ShipmentServices";
 import { ShipmentTrackingServices } from "./services/shipment/ShipmentTrackingServices";
+
 //seller
 class CustomerUser extends User {
     constructor(userID: number, name: string, email: string, password: string) {
@@ -79,3 +80,4 @@ const trackingServices = new ShipmentTrackingServices();
 console.log(trackingServices.getTrackingInfo(shipmentTracking));
 trackingServices.updateStatus(shipmentTracking, "Arrived at Facility");
 console.log(trackingServices.getTrackingInfo(shipmentTracking));
+

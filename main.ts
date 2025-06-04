@@ -1,4 +1,4 @@
-// //User
+//User
 import { User } from './models/user/User';
 import { UserServices } from './services/user/UserServices';
 import { Address } from "./models/address/Address";
@@ -8,8 +8,11 @@ import { Shipment } from "./models/shipment/Shipment";
 import { ShipmentTracking } from "./models/shipment/ShipmentTracking";
 import { ShipmentServices } from "./services/shipment/ShipmentServices";
 import { ShipmentTrackingServices } from "./services/shipment/ShipmentTrackingServices";
+import { Admin } from './models/user/Admin';
+import { AdminServices } from './services/user/AdminServices';
+import { Order } from './models/order/Order';
 
-//seller
+
 class CustomerUser extends User {
     constructor(userID: number, name: string, email: string, password: string) {
         super(userID, name, email, password, 'Customer');
@@ -80,4 +83,27 @@ const trackingServices = new ShipmentTrackingServices();
 console.log(trackingServices.getTrackingInfo(shipmentTracking));
 trackingServices.updateStatus(shipmentTracking, "Arrived at Facility");
 console.log(trackingServices.getTrackingInfo(shipmentTracking));
+
+
+//Admin
+class Admins extends User {
+    constructor(userID: number, name: string, email: string, password: string) {
+        super(userID, name, email, password, 'Admin');
+    }
+
+    displayInfo(): string {
+        return `User: ${this.name}, Email: ${this.email}`;
+    }
+}
+
+// Create admin and service instance
+const admin = new Admin(100, 'SuperAdmin', 'admin@example.com', 'adminpass');
+const adminService = new AdminServices();
+
+// Create additional admin instances
+const admin2 = new Admin(101, 'AdminJane', 'jane@example.com', 'janepass');
+const admin3 = new Admin(102, 'AdminMike', 'mike@example.com', 'mikepass');
+console.log(admin.displayInfo());
+console.log(admin2);
+console.log(admin3);
 

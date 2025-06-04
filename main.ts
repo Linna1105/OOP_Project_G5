@@ -1,35 +1,80 @@
-//User
+// //User
 import { User } from './models/user/User';
 import { UserServices } from './services/user/UserServices';
-class CustomerUser extends User {
-  constructor(userID: number, name: string, email: string, password: string) {
-    super(userID, name, email, password, 'Customer');
-  }
+import { Customer } from './models/user/Customer';
+import { CustomerServices } from "./services/user/CustomerServices";
+import { Seller } from "./models/user/Seller";
+import { SellerServices } from "./services/user/SellerServices";
+import { Admin } from "./models/user/Admin";
+import { AdminServices } from "./services/user/AdminServices";
+import { AuditLog } from "./models/user/AuditLog";
+import { AuditLogServices} from "./services/user/AuditLogServices";
 
-  displayInfo(): string {
-    return `Customer: ${this.name}, Email: ${this.email}`;
-  }
-}
+// Shipment
+import { Shipment } from "./models/shipment/Shipment";
+import { ShipmentServices } from "./services/shipment/ShipmentServices";
+import { ShipmentTracking } from "./models/shipment/ShipmentTracking";
+import { ShipmentTrackingServices } from "./services/shipment/ShipmentTrackingServices";
 
-const userService = new UserServices();
+// Review
+import { Review } from "./models/review/Review";
+import { ReviewServices } from "./services/review/ReviewServices";
 
-const user1 = new CustomerUser(1, 'Linna', 'linna@gmail.com', 'password123');
-const user2 = new CustomerUser(2, 'Sokha', 'sokha@gmail.com', 'securepass');
+// Refund
+import { Refund } from "./models/refund/Refund";
+import { RefundServices } from "./services/refund/RefundServices";
 
-userService.register(user1);
-userService.register(user2);
+// Product
+import { Product } from "./models/product/Product";
+import { ProductServices } from "./services/product/ProductServices";
+import { Discount } from "./models/product/Discount";
+import { DiscountServices } from "./services/product/DiscountServices";
+import { Category } from "./models/product/Category";
 
-const duplicateUser = new CustomerUser(3, 'That', 'that@gmail.com', 'clonepass');
-userService.register(duplicateUser); 
+// Payment
+import { Payment } from "./models/payment/Payment";
+import { PaymentServices } from "./services/payment/PaymentServices";
+import { PaymentMethod } from "./models/payment/PaymentMethod";
 
-userService.login(user1); 
-userService.login(new CustomerUser(0, 'Fake', 'bob@gmail.com', 'wrongpass')); 
+// Order
+import { Order } from "./models/order/Order";
+import { OrderServices } from "./services/order/OrderServices";
+import { OrderItem } from "./models/order/OrderItem";
+import { OrderItemServices } from "./services/order/OrderItemServices";
 
-console.log(userService.getUserDetails(user1));
-console.log(user1.displayInfo());
+// Notification
+import { Notification } from "./models/notification/Notification";
+import { NotificationServices } from "./services/notification/NotificationServices";
 
-userService.logout(user2);
+// Invoice
+import { Invoice } from "./models/invoice/Invoice";
+import { InvoiceServices } from "./services/invoice/InvoiceServices";
 
-//seller
+// Delivery
+import { DeliveryOption } from "./models/Delivery/DeliveryOption";
+import { DeliveryType } from "./models/Delivery/DeliveryType";
+
+// Cart
+import { Cart } from "./models/cart/Cart";
+import { CartServices } from "./services/cart/CartServices";
+import { CartItem } from "./models/cart/CartItem";
+
+// Address
+import { Address } from "./models/address/Address";
+import { AddressServices } from "./services/address/AddressServices";
+
+// Store
+import { Store } from "./models/store/Store";
+import { StoreServices } from "./services/store/StoreServices";
+
+
+
+
+
+
+
+
+
+
 
 

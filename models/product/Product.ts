@@ -1,24 +1,28 @@
 import { Seller } from "../../models/user/Seller";
 import { Discount } from "../product/Discount";
+import { Category } from "../product/Category";
+import { Store } from "../store/Store"; // Optional: only if you want to associate with a store
 
 export class Product {
-    public productID: number;
+    private productID: number;
     private name: string;
-    private category: string;
-    public price: number;
-    private discount: number;
+    private category: Category;
+    private price: number;
+    private discount: number; // main discount as percentage (e.g., 0.1 for 10%)
     private stockQuantity: number;
     private seller: Seller;
     private discounts: Discount[] = [];
+    private store?: Store; // Optional: associate with a store
 
     constructor(
         productID: number,
         name: string,
-        category: string,
+        category: Category,
         price: number,
         discount: number,
         stockQuantity: number,
-        seller: Seller
+        seller: Seller,
+        store?: Store // Optional
     ) {
         this.productID = productID;
         this.name = name;
@@ -27,6 +31,7 @@ export class Product {
         this.discount = discount;
         this.stockQuantity = stockQuantity;
         this.seller = seller;
+        this.store = store;
     }
 
     getProductID(): number {
@@ -45,11 +50,11 @@ export class Product {
         this.name = name;
     }
 
-    getCategory(): string {
+    getCategory(): Category {
         return this.category;
     }
 
-    setCategory(category: string): void {
+    setCategory(category: Category): void {
         this.category = category;
     }
 
@@ -58,6 +63,7 @@ export class Product {
     }
 
     setPrice(price: number): void {
+        if (price < 0) throw new Error("Price cannot be negative.");
         this.price = price;
     }
 
@@ -66,6 +72,7 @@ export class Product {
     }
 
     setDiscount(discount: number): void {
+        if (discount < 0) throw new Error("Discount cannot be negative.");
         this.discount = discount;
     }
 
@@ -74,6 +81,7 @@ export class Product {
     }
 
     setStockQuantity(stockQuantity: number): void {
+        if (stockQuantity < 0) throw new Error("Stock quantity cannot be negative.");
         this.stockQuantity = stockQuantity;
     }
 
@@ -93,7 +101,32 @@ export class Product {
         this.discounts = discounts;
     }
 
+    addDiscount(discount: Discount): void {
+        this.discounts.push(discount);
+    }
+
+    getStore(): Store | undefined {
+        return this.store;
+    }
+
+    setStore(store: Store): void {
+        this.store = store;
+    }
+
+    isAvailable(): boolean {
+        return this.stockQuantity > 0;
+    }
+
     getFinalPrice(): number {
-        return this.price - (this.price * this.discount);
+        // Apply main discount (percentage) and all additional discounts (percentage or fixed)
+        let finalPrice = this.price - (this.price * this.discount);
+        for (const d of this.discounts) {
+            if (d.getDiscountType().toLowerCase() === "percentage") {
+                finalPrice -= (finalPrice * d.getDiscountValue());
+            } else if (d.getDiscountType().toLowerCase() === "fixed") {
+                finalPrice -= d.getDiscountValue();
+            }
+        }
+        return Math.max(0, finalPrice);
     }
 }

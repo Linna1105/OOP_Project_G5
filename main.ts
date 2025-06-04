@@ -1,4 +1,4 @@
-// //User
+//User
 import { User } from './models/user/User';
 import { UserServices } from './services/user/UserServices';
 import { Customer } from './models/user/Customer';
@@ -68,13 +68,24 @@ import { Store } from "./models/store/Store";
 import { StoreServices } from "./services/store/StoreServices";
 
 
+const address = new Address("123 Main St", "Springfield", "IL", "62704", "USA");
+const deliveryOption = new DeliveryOption(DeliveryType.Standard, 5);
 
 
 
+const newDeliveryOption = new DeliveryOption(DeliveryType.Express, 10);
 
 
+//Admin
 
+// Create admin and service instance
+const admin = new Admin(100, 'SuperAdmin', 'admin@example.com', 'adminpass');
+const adminService = new AdminServices();
 
-
-
+// Create additional admin instances
+const admin2 = new Admin(101, 'AdminJane', 'jane@example.com', 'janepass');
+const admin3 = new Admin(102, 'AdminMike', 'mike@example.com', 'mikepass');
+console.log(admin.displayInfo());
+console.log(admin2);
+console.log(admin3);
 

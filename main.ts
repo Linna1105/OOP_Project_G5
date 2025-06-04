@@ -84,9 +84,8 @@ console.log(trackingServices.getTrackingInfo(shipmentTracking));
 trackingServices.updateStatus(shipmentTracking, "Arrived at Facility");
 console.log(trackingServices.getTrackingInfo(shipmentTracking));
 
-//Admin
 
-// Admin class
+//Admin
 class Admins extends User {
     constructor(userID: number, name: string, email: string, password: string) {
         super(userID, name, email, password, 'Admin');
@@ -107,7 +106,4 @@ const admin3 = new Admin(102, 'AdminMike', 'mike@example.com', 'mikepass');
 console.log(admin.displayInfo());
 console.log(admin2);
 console.log(admin3);
-
-
-
 

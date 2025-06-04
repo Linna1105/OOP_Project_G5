@@ -1,7 +1,7 @@
 import { AuditLog } from "../../models/user/AuditLog"; 
 import { User } from "../../models/user/User"; 
 
-export class AuditLogService {
+export class AuditLogServices {
     private static logs: AuditLog[] = [];
     private static nextId: number = 1;
 

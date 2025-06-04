@@ -8,6 +8,13 @@ export class Discount {
     private minOrderAmount: number;
     private isActive: boolean;
 
+    // New properties
+    private expirationDate?: Date;
+    private code?: string;
+    private description?: string;
+    private usageLimit?: number;
+    private usageCount: number = 0;
+
     constructor(
         discountType: string,
         discountValue: number,
@@ -65,10 +72,68 @@ export class Discount {
     }
 
     isActiveDiscount(): boolean {
-        return this.isActive;
+        return this.isActive && !this.isExpired() && this.canUse();
     }
 
     setActive(isActive: boolean): void {
         this.isActive = isActive;
     }
+
+    getPercentage(): number {
+        if (this.discountType.toLowerCase() === "percentage") {
+            return this.discountValue;
+        }
+        return 0;
+    }
+
+    // New methods and properties
+
+    setExpirationDate(date: Date): void {
+        this.expirationDate = date;
+    }
+
+    getExpirationDate(): Date | undefined {
+        return this.expirationDate;
+    }
+
+    isExpired(): boolean {
+        return this.expirationDate ? new Date() > this.expirationDate : false;
+    }
+
+    setCode(code: string): void {
+        this.code = code;
+    }
+
+    getCode(): string | undefined {
+        return this.code;
+    }
+
+    setDescription(desc: string): void {
+        this.description = desc;
+    }
+
+    getDescription(): string | undefined {
+        return this.description;
+    }
+
+    setUsageLimit(limit: number): void {
+        this.usageLimit = limit;
+    }
+
+    getUsageLimit(): number | undefined {
+        return this.usageLimit;
+    }
+
+    incrementUsage(): void {
+        this.usageCount++;
+    }
+
+    getUsageCount(): number {
+        return this.usageCount;
+    }
+
+    canUse(): boolean {
+        return this.usageLimit === undefined || this.usageCount < this.usageLimit;
+    }
+
 }

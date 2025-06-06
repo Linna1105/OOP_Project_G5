@@ -11,6 +11,8 @@ import { ShipmentTrackingServices } from "./services/shipment/ShipmentTrackingSe
 import { Admin } from './models/user/Admin';
 import { AdminServices } from './services/user/AdminServices';
 import { Order } from './models/order/Order';
+import { AuditLogService } from './services/user/AuditLogServices';
+
 
 
 class CustomerUser extends User {
@@ -84,18 +86,7 @@ console.log(trackingServices.getTrackingInfo(shipmentTracking));
 trackingServices.updateStatus(shipmentTracking, "Arrived at Facility");
 console.log(trackingServices.getTrackingInfo(shipmentTracking));
 
-
 //Admin
-class Admins extends User {
-    constructor(userID: number, name: string, email: string, password: string) {
-        super(userID, name, email, password, 'Admin');
-    }
-
-    displayInfo(): string {
-        return `User: ${this.name}, Email: ${this.email}`;
-    }
-}
-
 // Create admin and service instance
 const admin = new Admin(100, 'SuperAdmin', 'admin@example.com', 'adminpass');
 const adminService = new AdminServices();
@@ -106,4 +97,7 @@ const admin3 = new Admin(102, 'AdminMike', 'mike@example.com', 'mikepass');
 console.log(admin.displayInfo());
 console.log(admin2);
 console.log(admin3);
+
+
+
 

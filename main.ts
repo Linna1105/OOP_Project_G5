@@ -69,11 +69,37 @@ import { StoreServices } from "./services/store/StoreServices";
 
 
 const address = new Address("123 Main St", "Springfield", "IL", "62704", "USA");
+const addressSeller = new Address("371street", "Cambodia", "IL", "62704", "CAM");
+// create User
+
+
+
+// create customer can order product
+const customer = new Customer(1, 'Thatt', 'that@gmail.com', 'that1111', address);
+const seller = new Seller(10,"khim", "khim@gmaim.com","123khim","stock",address)
+const category = new Category(1,"laptop", "make in Cambodia");
+
+const product = new Product(1, "Computer",category,900, 10,5,seller )// deliveryOption
 const deliveryOption = new DeliveryOption(DeliveryType.Standard, 5);
-
-
-
 const newDeliveryOption = new DeliveryOption(DeliveryType.Express, 10);
+
+const shipment = new Shipment(1, "TRACK123", deliveryOption, address);
+
+const item = new OrderItem(product,1,shipment ,deliveryOption)
+const order = new Order(1, customer, 'instock')
+
+
+console.log("Customer:", customer);
+console.log("Seller:", seller);
+console.log("Category:", category);
+console.log("Product:", product);
+console.log("Delivery Option:", deliveryOption);
+console.log("Shipment:", shipment);
+console.log("Order Item:", item);
+console.log("Order:", order);
+
+
+
 
 
 //Admin
@@ -88,4 +114,5 @@ const admin3 = new Admin(102, 'AdminMike', 'mike@example.com', 'mikepass');
 console.log(admin.displayInfo());
 console.log(admin2);
 console.log(admin3);
+
 

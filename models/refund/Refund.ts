@@ -1,55 +1,56 @@
-import { OrderItem } from "../order/OrderItem";
+import { Order } from "../order/Order";
 
 export class Refund {
-    private refundID: number;
-    private orderItem: OrderItem;
-    private amount: number;
-    private refundDate: Date;
-    private status: string;
+  constructor(
+    private refundID: number,
+    private order: Order,
+    private amount: number,
+    private reason: string,
+    private refundDate: Date,
+    private status: string
+  ) {}
 
-    constructor(
-        refundID: number,
-        orderItem: OrderItem,
-        amount: number,
-        refundDate: Date,
-        status: string
-    ) {
-        this.refundID = refundID;
-        this.orderItem = orderItem;
-        this.amount = amount;
-        this.refundDate = refundDate;
-        this.status = status;
-    }
+  getRefundID(): number {
+    return this.refundID;
+  }
 
-    getRefundID(): number {
-        return this.refundID;
-    }
+  getOrder(): Order {
+    return this.order;
+  }
 
-    getOrderItem(): OrderItem {
-        return this.orderItem;
-    }
+  getAmount(): number {
+    return this.amount;
+  }
 
-    getAmount(): number {
-        return this.amount;
-    }
+  getReason(): string {
+    return this.reason;
+  }
 
-    getRefundDate(): Date {
-        return this.refundDate;
-    }
+  getRefundDate(): Date {
+    return this.refundDate;
+  }
 
-    getStatus(): string {
-        return this.status;
-    }
+  getStatus(): string {
+    return this.status;
+  }
 
-    setStatus(status: string): void {
-        this.status = status;
-    }
+  setOrder(order: Order): void {
+    this.order = order;
+  }
 
-    setAmount(amount: number): void {
-        this.amount = amount;
-    }
+  setAmount(amount: number): void {
+    this.amount = amount;
+  }
 
-    setRefundDate(refundDate: Date): void {
-        this.refundDate = refundDate;
-    }
+  setReason(reason: string): void {
+    this.reason = reason;
+  }
+
+  setRefundDate(refundDate: Date): void {
+    this.refundDate = refundDate;
+  }
+
+  setStatus(status: string): void {
+    this.status = status;
+  }
 }

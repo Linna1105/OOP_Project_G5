@@ -4,7 +4,6 @@ import { Product } from "../product/Product";
 import { Order } from "../order/Order";
 
 export class Seller extends User {
-    private storeName: string;
     private address: Address;
     private products: Product[] = [];
     private orders: Order[] = [];
@@ -14,20 +13,10 @@ export class Seller extends User {
         name: string,
         email: string,
         password: string,
-        storeName: string,
         address: Address
     ) {
         super(userID, name, email, password, 'Seller');
-        this.storeName = storeName;
         this.address = address;
-    }
-
-    getStoreName(): string {
-        return this.storeName;
-    }
-
-    setStoreName(storeName: string): void {
-        this.storeName = storeName;
     }
 
     getAddress(): Address {
@@ -55,6 +44,6 @@ export class Seller extends User {
     }
 
     displayInfo(): string {
-        return `Seller: ${this.name}, Store: ${this.storeName}, Email: ${this.email}`;
+        return `Seller: ${this.name}, Email: ${this.email}`;
     }
 }

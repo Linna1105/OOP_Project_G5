@@ -1,14 +1,10 @@
-import { Product } from "../product/Product"; // Adjust path as needed
 
 export class Discount {
     private discountType: string;
     private discountValue: number;
     private isProductLevel: boolean;
-    private product: Product;
     private minOrderAmount: number;
     private isActive: boolean;
-
-    // New properties
     private expirationDate?: Date;
     private code?: string;
     private description?: string;
@@ -19,14 +15,12 @@ export class Discount {
         discountType: string,
         discountValue: number,
         isProductLevel: boolean,
-        product: Product,
         minOrderAmount: number,
         isActive: boolean
     ) {
         this.discountType = discountType;
         this.discountValue = discountValue;
         this.isProductLevel = isProductLevel;
-        this.product = product;
         this.minOrderAmount = minOrderAmount;
         this.isActive = isActive;
     }
@@ -55,14 +49,6 @@ export class Discount {
         this.isProductLevel = isProductLevel;
     }
 
-    getProduct(): Product {
-        return this.product;
-    }
-
-    setProduct(product: Product): void {
-        this.product = product;
-    }
-
     getMinOrderAmount(): number {
         return this.minOrderAmount;
     }
@@ -85,8 +71,6 @@ export class Discount {
         }
         return 0;
     }
-
-    // New methods and properties
 
     setExpirationDate(date: Date): void {
         this.expirationDate = date;

@@ -54,7 +54,5 @@ export class Address {
     }
     public getFullAddress(): string {
         return `${this.country} ${this.street}, ${this.city}, ${this.state} ${this.zipCode}`;
-}
-
-   
+    }
 }

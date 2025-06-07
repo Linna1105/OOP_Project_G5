@@ -25,35 +25,68 @@ export class Payment {
         this.paidDate = paidDate;
     }
 
-    getPaymentID(): number {
-        return this.paymentID;
-    }
+   /**
+ * Returns the unique ID of the payment.
+ * @returns {number} The payment ID.
+ */
+getPaymentID(): number {
+    return this.paymentID;
+}
 
-    getOrder(): Order {
-        return this.order;
-    }
+/**
+ * Returns the order associated with this payment.
+ * @returns {Order} The order object.
+ */
+getOrder(): Order {
+    return this.order;
+}
 
-    getPaymentMethod(): PaymentMethod {
-        return this.paymentMethod;
-    }
+/**
+ * Returns the payment method used.
+ * @returns {PaymentMethod} The payment method object.
+ */
+getPaymentMethod(): PaymentMethod {
+    return this.paymentMethod;
+}
 
-    getAmount(): number {
-        return this.amount;
-    }
+/**
+ * Returns the amount paid.
+ * @returns {number} The payment amount.
+ */
+getAmount(): number {
+    return this.amount;
+}
 
-    getStatus(): string {
-        return this.status;
-    }
+/**
+ * Returns the current status of the payment.
+ * @returns {string} The status (e.g., 'pending', 'completed').
+ */
+getStatus(): string {
+    return this.status;
+}
 
-    getPaidDate(): Date {
-        return this.paidDate;
-    }
+/**
+ * Returns the date when the payment was made.
+ * @returns {Date} The paid date.
+ */
+getPaidDate(): Date {
+    return this.paidDate;
+}
 
-    setStatus(status: string): void {
-        this.status = status;
-    }
+/**
+ * Updates the status of the payment.
+ * @param {string} status - The new status to set.
+ */
+setStatus(status: string): void {
+    this.status = status;
+}
 
-    setPaidDate(date: Date): void {
-        this.paidDate = date;
-    }
+/**
+ * Sets or updates the date the payment was made.
+ * @param {Date} date - The date the payment was completed.
+ */
+setPaidDate(date: Date): void {
+    this.paidDate = date;
+}
+
 }

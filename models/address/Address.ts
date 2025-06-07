@@ -13,46 +13,93 @@ export class Address {
         this.zipCode = zipCode;
     }
 
-    getStreet(): string {
-        return this.street;
-    }
+    /**
+ * Returns the street of the address.
+ * @returns The street as a string.
+ */
+getStreet(): string {
+    return this.street;
+}
 
-    getCity(): string {
-        return this.city;
-    }
+/**
+ * Returns the city of the address.
+ * @returns The city as a string.
+ */
+getCity(): string {
+    return this.city;
+}
 
-    getState(): string {
-        return this.state;
-    }
+/**
+ * Returns the state of the address.
+ * @returns The state as a string.
+ */
+getState(): string {
+    return this.state;
+}
 
-    getCountry(): string {
-        return this.country;
-    }
+/**
+ * Returns the country of the address.
+ * @returns The country as a string.
+ */
+getCountry(): string {
+    return this.country;
+}
 
-    getZipCode(): string {
-        return this.zipCode;
-    }
+/**
+ * Returns the zip code of the address.
+ * @returns The zip code as a string.
+ */
+getZipCode(): string {
+    return this.zipCode;
+}
 
-    setStreet(street: string): void {
-        this.street = street;
-    }
+/**
+ * Sets the street of the address.
+ * @param street - The street to assign to the address.
+ */
+setStreet(street: string): void {
+    this.street = street;
+}
 
-    setCity(city: string): void {
-        this.city = city;
-    }
+/**
+ * Sets the city of the address.
+ * @param city - The city to assign to the address.
+ */
+setCity(city: string): void {
+    this.city = city;
+}
 
-    setState(state: string): void {
-        this.state = state;
-    }
+/**
+ * Sets the state of the address.
+ * @param state - The state to assign to the address.
+ */
+setState(state: string): void {
+    this.state = state;
+}
 
-    setCountry(country: string): void {
-        this.country = country;
-    }
+/**
+ * Sets the country of the address.
+ * @param country - The country to assign to the address.
+ */
+setCountry(country: string): void {
+    this.country = country;
+}
 
-    setZipCode(zipCode: string): void {
-        this.zipCode = zipCode;
-    }
-    public getFullAddress(): string {
-        return `${this.country} ${this.street}, ${this.city}, ${this.state} ${this.zipCode}`;
-    }
+/**
+ * Sets the zip code of the address.
+ * @param zipCode - The zip code to assign to the address.
+ */
+setZipCode(zipCode: string): void {
+    this.zipCode = zipCode;
+}
+
+/**
+ * Returns the full formatted address string.
+ * Combines country, street, city, state, and zip code into one line.
+ * @returns A string representing the full address.
+ */
+public getFullAddress(): string {
+    return `${this.country} ${this.street}, ${this.city}, ${this.state} ${this.zipCode}`;
+}
+
 }

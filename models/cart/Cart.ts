@@ -11,35 +11,67 @@ export class Cart {
         this.customer = customer;
     }
 
-    getCartID(): number {
-        return this.cartID;
-    }
+/**
+ * Returns the cart ID.
+ * @returns The unique identifier for the cart.
+ */
+getCartID(): number {
+    return this.cartID;
+}
 
-    setCartID(cartID: number): void {
-        this.cartID = cartID;
-    }
+/**
+ * Sets the cart ID.
+ * @param cartID - The unique identifier to assign to the cart.
+ */
+setCartID(cartID: number): void {
+    this.cartID = cartID;
+}
 
-    getCustomer(): Customer {
-        return this.customer;
-    }
+/**
+ * Returns the customer associated with the cart.
+ * @returns The customer object.
+ */
+getCustomer(): Customer {
+    return this.customer;
+}
 
-    setCustomer(customer: Customer): void {
-        this.customer = customer;
-    }
+/**
+ * Sets the customer associated with the cart.
+ * @param customer - The customer object to assign to the cart.
+ */
+setCustomer(customer: Customer): void {
+    this.customer = customer;
+}
 
-    getItems(): CartItem[] {
-        return this.items;
-    }
+/**
+ * Returns the list of items in the cart.
+ * @returns An array of CartItem objects.
+ */
+getItems(): CartItem[] {
+    return this.items;
+}
 
-    setItems(items: CartItem[]): void {
-        this.items = items;
-    }
+/**
+ * Sets the list of items in the cart.
+ * @param items - An array of CartItem objects to assign to the cart.
+ */
+setItems(items: CartItem[]): void {
+    this.items = items;
+}
 
-    addItem(item: CartItem): void {
-        this.items.push(item);
-    }
+/**
+ * Adds a new item to the cart.
+ * @param item - The CartItem object to add to the cart.
+ */
+addItem(item: CartItem): void {
+    this.items.push(item);
+}
 
-    clearItems(): void {
-        this.items = [];
-    }
+/**
+ * Clears all items from the cart.
+ */
+clearItems(): void {
+    this.items = [];
+}
+
 }

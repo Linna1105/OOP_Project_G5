@@ -20,9 +20,11 @@ export abstract class User {
     this.password = password;
     this.role = role;
   }
-
-  // Abstract method for displaying user info
-  abstract displayInfo(): string;
-
+ 
+    /**
+     * Each subclass must implement its own version of displayInfo.
+     */
+    abstract displayInfo(): string;
 }
+
 

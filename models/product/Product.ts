@@ -34,99 +34,189 @@ export class Product {
         this.store = store;
     }
 
-    getProductID(): number {
-        return this.productID;
-    }
+    /**
+ * Returns the product ID.
+ * @returns {number} The unique identifier for the product.
+ */
+getProductID(): number {
+    return this.productID;
+}
 
-    setProductID(productID: number): void {
-        this.productID = productID;
-    }
+/**
+ * Sets the product ID.
+ * @param {number} productID - The unique identifier to assign to the product.
+ */
+setProductID(productID: number): void {
+    this.productID = productID;
+}
 
-    getName(): string {
-        return this.name;
-    }
+/**
+ * Returns the product name.
+ * @returns {string} The name of the product.
+ */
+getName(): string {
+    return this.name;
+}
 
-    setName(name: string): void {
-        this.name = name;
-    }
+/**
+ * Sets the product name.
+ * @param {string} name - The name to assign to the product.
+ */
+setName(name: string): void {
+    this.name = name;
+}
 
-    getCategory(): Category {
-        return this.category;
-    }
+/**
+ * Returns the category the product belongs to.
+ * @returns {Category} The product category object.
+ */
+getCategory(): Category {
+    return this.category;
+}
 
-    setCategory(category: Category): void {
-        this.category = category;
-    }
+/**
+ * Sets the category of the product.
+ * @param {Category} category - The category to assign to the product.
+ */
+setCategory(category: Category): void {
+    this.category = category;
+}
 
-    getPrice(): number {
-        return this.price;
-    }
+/**
+ * Returns the base price of the product.
+ * @returns {number} The product price.
+ */
+getPrice(): number {
+    return this.price;
+}
 
-    setPrice(price: number): void {
-        if (price < 0) throw new Error("Price cannot be negative.");
-        this.price = price;
-    }
+/**
+ * Sets the base price of the product.
+ * Throws error if price is negative.
+ * @param {number} price - The price to set.
+ */
+setPrice(price: number): void {
+    if (price < 0) throw new Error("Price cannot be negative.");
+    this.price = price;
+}
 
-    getDiscount(): number {
-        return this.discount;
-    }
+/**
+ * Returns the main discount as a decimal (e.g., 0.2 for 20%).
+ * @returns {number} The discount value.
+ */
+getDiscount(): number {
+    return this.discount;
+}
 
-    setDiscount(discount: number): void {
-        if (discount < 0) throw new Error("Discount cannot be negative.");
-        this.discount = discount;
-    }
+/**
+ * Sets the main discount for the product.
+ * Throws error if discount is negative.
+ * @param {number} discount - The discount value as decimal.
+ */
+setDiscount(discount: number): void {
+    if (discount < 0) throw new Error("Discount cannot be negative.");
+    this.discount = discount;
+}
 
-    getStockQuantity(): number {
-        return this.stockQuantity;
-    }
+/**
+ * Returns the stock quantity available for the product.
+ * @returns {number} The number of items in stock.
+ */
+getStockQuantity(): number {
+    return this.stockQuantity;
+}
 
-    setStockQuantity(stockQuantity: number): void {
-        if (stockQuantity < 0) throw new Error("Stock quantity cannot be negative.");
-        this.stockQuantity = stockQuantity;
-    }
+/**
+ * Sets the stock quantity.
+ * Throws error if quantity is negative.
+ * @param {number} stockQuantity - The stock count.
+ */
+setStockQuantity(stockQuantity: number): void {
+    if (stockQuantity < 0) throw new Error("Stock quantity cannot be negative.");
+    this.stockQuantity = stockQuantity;
+}
 
-    getSeller(): Seller {
-        return this.seller;
-    }
+/**
+ * Returns the seller associated with the product.
+ * @returns {Seller} The seller object.
+ */
+getSeller(): Seller {
+    return this.seller;
+}
 
-    setSeller(seller: Seller): void {
-        this.seller = seller;
-    }
+/**
+ * Sets the seller for the product.
+ * @param {Seller} seller - The seller to assign.
+ */
+setSeller(seller: Seller): void {
+    this.seller = seller;
+}
 
-    getDiscounts(): Discount[] {
-        return this.discounts;
-    }
+/**
+ * Returns all discounts applicable to the product.
+ * @returns {Discount[]} Array of discount objects.
+ */
+getDiscounts(): Discount[] {
+    return this.discounts;
+}
 
-    setDiscounts(discounts: Discount[]): void {
-        this.discounts = discounts;
-    }
+/**
+ * Sets multiple discounts for the product.
+ * @param {Discount[]} discounts - Array of discounts.
+ */
+setDiscounts(discounts: Discount[]): void {
+    this.discounts = discounts;
+}
 
-    addDiscount(discount: Discount): void {
-        this.discounts.push(discount);
-    }
+/**
+ * Adds a single discount to the product's discount list.
+ * @param {Discount} discount - Discount to add.
+ */
+addDiscount(discount: Discount): void {
+    this.discounts.push(discount);
+}
 
-    getStore(): Store | undefined {
-        return this.store;
-    }
+/**
+ * Returns the store where the product is available (if any).
+ * @returns {Store | undefined} Store object or undefined.
+ */
+getStore(): Store | undefined {
+    return this.store;
+}
 
-    setStore(store: Store): void {
-        this.store = store;
-    }
+/**
+ * Sets the store for the product.
+ * @param {Store} store - Store to assign.
+ */
+setStore(store: Store): void {
+    this.store = store;
+}
 
-    isAvailable(): boolean {
-        return this.stockQuantity > 0;
-    }
+/**
+ * Checks if the product is available for purchase.
+ * @returns {boolean} True if stockQuantity > 0, otherwise false.
+ */
+isAvailable(): boolean {
+    return this.stockQuantity > 0;
+}
 
-    getFinalPrice(): number {
-        // Apply main discount (percentage) and all additional discounts (percentage or fixed)
-        let finalPrice = this.price - (this.price * this.discount);
-        for (const d of this.discounts) {
-            if (d.getDiscountType().toLowerCase() === "percentage") {
-                finalPrice -= (finalPrice * d.getDiscountValue());
-            } else if (d.getDiscountType().toLowerCase() === "fixed") {
-                finalPrice -= d.getDiscountValue();
-            }
+/**
+ * Calculates and returns the final price after applying
+ * the main discount and any additional discounts.
+ * Handles both percentage and fixed amount discounts.
+ * Ensures price never drops below zero.
+ * @returns {number} The final calculated price.
+ */
+getFinalPrice(): number {
+    let finalPrice = this.price - (this.price * this.discount);
+    for (const d of this.discounts) {
+        if (d.getDiscountType().toLowerCase() === "percentage") {
+            finalPrice -= (finalPrice * d.getDiscountValue());
+        } else if (d.getDiscountType().toLowerCase() === "fixed") {
+            finalPrice -= d.getDiscountValue();
         }
-        return Math.max(0, finalPrice);
     }
+    return Math.max(0, finalPrice);
+}
+
 }

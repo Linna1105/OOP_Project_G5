@@ -246,7 +246,6 @@ console.log("Same Day:", option3);
 
 
 
-
 //Admin
 // Create admin and service instance
 const admin = new Admin(100, 'SuperAdmin', 'admin@example.com', 'adminpass');
@@ -258,4 +257,5 @@ const admin3 = new Admin(102, 'AdminMike', 'mike@example.com', 'mikepass');
 console.log(admin.displayInfo());
 console.log(admin2);
 console.log(admin3);
+
 

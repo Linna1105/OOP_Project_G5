@@ -10,47 +10,92 @@ export class Refund {
     private status: string
   ) {}
 
-  getRefundID(): number {
+ /**
+ * Returns the unique refund ID.
+ * @returns {number} The refund identifier.
+ */
+getRefundID(): number {
     return this.refundID;
-  }
+}
 
-  getOrder(): Order {
+/**
+ * Returns the associated order for the refund.
+ * @returns {Order} The order linked to this refund.
+ */
+getOrder(): Order {
     return this.order;
-  }
+}
 
-  getAmount(): number {
+/**
+ * Returns the refund amount.
+ * @returns {number} The amount to be refunded.
+ */
+getAmount(): number {
     return this.amount;
-  }
+}
 
-  getReason(): string {
+/**
+ * Returns the reason for the refund.
+ * @returns {string} The explanation or reason for refund.
+ */
+getReason(): string {
     return this.reason;
-  }
+}
 
-  getRefundDate(): Date {
+/**
+ * Returns the date when the refund was issued.
+ * @returns {Date} The refund date.
+ */
+getRefundDate(): Date {
     return this.refundDate;
-  }
+}
 
-  getStatus(): string {
+/**
+ * Returns the current status of the refund.
+ * @returns {string} The refund status (e.g., pending, completed).
+ */
+getStatus(): string {
     return this.status;
-  }
+}
 
-  setOrder(order: Order): void {
+/**
+ * Sets the order associated with the refund.
+ * @param {Order} order - The order to link to this refund.
+ */
+setOrder(order: Order): void {
     this.order = order;
-  }
+}
 
-  setAmount(amount: number): void {
+/**
+ * Sets the refund amount.
+ * @param {number} amount - The amount to refund.
+ */
+setAmount(amount: number): void {
     this.amount = amount;
-  }
+}
 
-  setReason(reason: string): void {
+/**
+ * Sets the reason for the refund.
+ * @param {string} reason - The explanation for refund.
+ */
+setReason(reason: string): void {
     this.reason = reason;
-  }
+}
 
-  setRefundDate(refundDate: Date): void {
+/**
+ * Sets the refund date.
+ * @param {Date} refundDate - The date refund was processed.
+ */
+setRefundDate(refundDate: Date): void {
     this.refundDate = refundDate;
-  }
+}
 
-  setStatus(status: string): void {
+/**
+ * Sets the current refund status.
+ * @param {string} status - The refund status (e.g., pending, approved).
+ */
+setStatus(status: string): void {
     this.status = status;
-  }
+}
+
 }

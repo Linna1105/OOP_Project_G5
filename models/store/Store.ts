@@ -1,5 +1,4 @@
 import { Address } from "../address/Address";
-import { Seller } from "../user/Seller";
 import { Product } from "../product/Product";
 
 export class Store {
@@ -7,21 +6,20 @@ export class Store {
     private name: string;
     private description: string;
     private address: Address;
-    private seller: Seller;
     private products: Product[] = [];
 
-    constructor(storeID: number, name: string, description: string, address: Address, seller: Seller) {
+    constructor(storeID: number, name: string, description: string, address: Address, products: Product[] = []) {
         this.storeID = storeID;
         this.name = name;
         this.description = description;
         this.address = address;
-        this.seller = seller;
+        this.products = products;
     }
 
     /**
- * Returns the unique store ID.
- * @returns {number} The identifier of the store.
- */
+     * Returns the unique store ID.
+     * @returns {number} The identifier of the store.
+     */
     getStoreID(): number {
         return this.storeID;
     }
@@ -75,22 +73,6 @@ export class Store {
     }
 
     /**
-     * Returns the seller associated with the store.
-     * @returns {Seller} The seller object managing the store.
-     */
-    getSeller(): Seller {
-        return this.seller;
-    }
-
-    /**
-     * Sets the seller associated with the store.
-     * @param {Seller} seller - The seller to assign.
-     */
-    setSeller(seller: Seller): void {
-        this.seller = seller;
-    }
-
-    /**
      * Returns the list of products sold by the store.
      * @returns {Product[]} An array of Product objects.
      */
@@ -99,12 +81,12 @@ export class Store {
     }
 
     /**
-     * Adds a product to the store's product list and sets this store in the product.
+     * Adds a product to the store's product list.
      * @param {Product} product - The product to add.
      */
     addProduct(product: Product): void {
         this.products.push(product);
-        product.setStore(this); // Maintain bi-directional association
+        // No call to product.setStore(this)
     }
 
     /**
@@ -115,4 +97,20 @@ export class Store {
         this.products = this.products.filter(p => p.getProductID() !== productID);
     }
 
+    /**
+     * Sets the list of products for the store.
+     * @param {Product[]} products - An array of Product objects to set.
+     */
+    setProducts(products: Product[]): void {
+        this.products = products;
+        // No call to product.setStore(this)
+    }
+
+    /**
+     * Returns the number of products in the store.
+     * @returns {number} The count of products available in the store.
+     */
+    getProductCount(): number {
+        return this.products.length;
+    }
 }

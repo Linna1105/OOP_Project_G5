@@ -2,21 +2,33 @@ import { User } from "./User";
 import { Address } from "../address/Address";
 import { Product } from "../product/Product";
 import { Order } from "../order/Order";
+import { Store } from "../store/Store";
 
 export class Seller extends User {
     private address: Address;
     private products: Product[] = [];
     private orders: Order[] = [];
+    private store: Store;
 
     constructor(
         userID: number,
         name: string,
         email: string,
         password: string,
-        address: Address
+        address: Address,
+        store: Store
     ) {
         super(userID, name, email, password, 'Seller');
         this.address = address;
+        this.store = store;
+    }
+
+ /**
+     * Returns the name of the store managed by the seller.
+     * @returns {string} The store name.
+     */
+    getStoreName(): string {
+        return this.store.getName();
     }
 
     /**

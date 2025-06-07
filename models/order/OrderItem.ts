@@ -1,18 +1,21 @@
 import { Product } from "../product/Product";
 import { Shipment } from "../shipment/Shipment";
 import { DeliveryOption } from "../Delivery/DeliveryOption";
+import { Seller } from "../user/Seller";
 
 export class OrderItem {
     private product: Product;
     private quantity: number;
     private shipment: Shipment;
     private deliveryOption: DeliveryOption;
+    private seller: Seller;
 
     constructor(
         product: Product,
         quantity: number,
         shipment: Shipment,
-        deliveryOption: DeliveryOption
+        deliveryOption: DeliveryOption,
+        seller: Seller
     ) {
         if (quantity <= 0) {
             throw new Error('Quantity must be greater than zero');
@@ -21,6 +24,7 @@ export class OrderItem {
         this.quantity = quantity;
         this.shipment = shipment;
         this.deliveryOption = deliveryOption;
+        this.seller = seller;
     }
 
     /**
@@ -84,5 +88,4 @@ export class OrderItem {
         const deliveryFee = this.deliveryOption ? this.deliveryOption.getFee() : 0;
         return baseCost + deliveryFee;
     }
-
 }

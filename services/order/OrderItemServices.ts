@@ -1,7 +1,14 @@
 import { OrderItem } from "../../models/order/OrderItem";
 
 export class OrderItemServices {
-    getTotalCost(orderItem: OrderItem): number {
-        return orderItem.getTotalCost(); // now just calls the model method
-    }
+   /**
+ * Retrieves the total cost of the given order item.
+ *
+ * @param orderItem - The OrderItem instance to get the total cost from.
+ * @returns The total cost of the order item.
+ */
+getTotalCost(orderItem: OrderItem): number {
+    return orderItem.getTotalCost(); // Delegates to the OrderItem's own method
+}
+
 }

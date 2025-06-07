@@ -192,8 +192,6 @@ console.log("Order Item:", item);
 console.log("Order:", order);
 
 
-
-
 //Admin
 // Create admin and service instance
 const admin = new Admin(100, 'SuperAdmin', 'admin@example.com', 'adminpass');

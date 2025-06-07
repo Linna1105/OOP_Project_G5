@@ -28,39 +28,76 @@ export class Notification {
         this.isRead = isRead;
     }
 
-    getUser(): User {
-        return this.user;
-    }
+    /**
+ * Returns the user associated with this entity.
+ * @returns {User} The user object.
+ */
+getUser(): User {
+    return this.user;
+}
 
-    getType(): string {
-        return this.type;
-    }
+/**
+ * Returns the type of the entity (e.g., notification type).
+ * @returns {string} The type as a string.
+ */
+getType(): string {
+    return this.type;
+}
 
-    getTitle(): string {
-        return this.title;
-    }
+/**
+ * Returns the title or subject of the entity.
+ * @returns {string} The title text.
+ */
+getTitle(): string {
+    return this.title;
+}
 
-    getMessage(): string {
-        return this.message;
-    }
+/**
+ * Returns the detailed message or content.
+ * @returns {string} The message text.
+ */
+getMessage(): string {
+    return this.message;
+}
 
-    getRelatedOrder(): Order | null {
-        return this.relatedOrder;
-    }
+/**
+ * Returns the related order if any.
+ * @returns {Order | null} The related order object or null if none.
+ */
+getRelatedOrder(): Order | null {
+    return this.relatedOrder;
+}
 
-    getCreatedAt(): Date {
-        return this.createdAt;
-    }
+/**
+ * Returns the creation date/time of this entity.
+ * @returns {Date} The date/time when this was created.
+ */
+getCreatedAt(): Date {
+    return this.createdAt;
+}
 
-    getIsRead(): boolean {
-        return this.isRead;
-    }
+/**
+ * Returns whether this entity has been marked as read.
+ * @returns {boolean} True if read, false otherwise.
+ */
+getIsRead(): boolean {
+    return this.isRead;
+}
 
-    markAsRead(): void {
-        this.isRead = true;
-    }
+/**
+ * Marks this entity as read.
+ * Sets the isRead flag to true.
+ */
+markAsRead(): void {
+    this.isRead = true;
+}
 
-    markAsUnread(): void {
-        this.isRead = false;
-    }
+/**
+ * Marks this entity as unread.
+ * Sets the isRead flag to false.
+ */
+markAsUnread(): void {
+    this.isRead = false;
+}
+
 }

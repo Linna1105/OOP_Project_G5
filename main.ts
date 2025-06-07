@@ -162,6 +162,91 @@ cart1.addItem(cartItem2);
 cart2.addItem(cartItem1);
 cart3.addItem(cartItem3);
 
+console.log("========== USERS ==========");
+console.log("Customer 1:", customer1);
+console.log("Customer 2:", customer2);
+console.log("Customer 3:", customer3);
+console.log("Seller 1:", seller1);
+console.log("Seller 2:", seller2);
+console.log("Seller 3:", seller3);
+console.log("\n========== STORES ==========");
+console.log("Store 1:", store1);
+console.log("Store 2:", store2);
+console.log("Store 3:", store3);
+
+console.log("\n========== PRODUCTS ==========");
+console.log("Product 1:", product1);
+console.log("Product 2:", product2);
+console.log("Product 3:", product3);
+
+console.log("\n========== CARTS ==========");
+console.log("Cart 1:", cart1);
+console.log("Cart 2:", cart2);
+console.log("Cart 3:", cart3);
+
+console.log("\n========== ORDERS ==========");
+console.log("Order 1:", order1);
+console.log("Order 2:", order2);
+console.log("Order 3:", order3);
+
+console.log("\n========== PAYMENTS ==========");
+console.log("Payment 1:", payment1);
+console.log("Payment 2:", payment2);
+console.log("Payment 3:", payment3);
+
+console.log("\n========== REVIEWS ==========");
+console.log("Review 1:", review1);
+console.log("Review 2:", review2);
+console.log("Review 3:", review3);
+
+console.log("\n========== REFUNDS ==========");
+console.log("Refund 1:", refund1);
+console.log("Refund 2:", refund2);
+
+console.log("\n========== INVOICES ==========");
+console.log("Invoice 1:", invoice1);
+console.log("Invoice 2:", invoice2);
+
+console.log("\n========== SHIPMENTS ==========");
+console.log("Shipment 1:", shipment1);
+console.log("Shipment 2:", shipment2);
+console.log("Shipment 3:", shipment3);
+
+console.log("\n========== TRACKINGS ==========");
+console.log("Tracking 1:", tracking1);
+console.log("Tracking 2:", tracking2);
+console.log("Tracking 3:", tracking3);
+
+console.log("\n========== CATEGORIES ==========");
+console.log("Electronics:", electronics);
+console.log("Books:", books);
+console.log("Clothing:", clothing);
+
+console.log("\n========== DISCOUNTS ==========");
+console.log("Discount 1:", discount1);
+console.log("Discount 2:", discount2);
+console.log("Discount 3:", discount3);
+
+console.log("\n========== DELIVERY OPTIONS ==========");
+console.log("Standard:", option1);
+console.log("Express:", option2);
+console.log("Same Day:", option3);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Admin
 // Create admin and service instance
 const admin = new Admin(100, 'SuperAdmin', 'admin@example.com', 'adminpass');

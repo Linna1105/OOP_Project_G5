@@ -29,7 +29,7 @@ updateComment(review: Review, newComment: string): void {
  * @returns A formatted string summarizing the review details.
  */
 getReviewSummary(review: Review): string {
-    return `Review #${review.getReviewId()} by ${review.getCustomer().name} for ${review.getProduct().getName()}:
+    return `Review #${review.getReviewId()} by ${review.getCustomer().getName} for ${review.getProduct().getName()}:
 Rating: ${review.getRating()}
 Comment: ${review.getComment()}
 Date: ${review.getDate().toLocaleDateString()}`;

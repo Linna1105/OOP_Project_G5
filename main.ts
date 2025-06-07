@@ -94,15 +94,16 @@ const shipment1 = new Shipment(1, "SHIP123", option1, address1, tracking1);
 const shipment2 = new Shipment(2, "SHIP456", option2, address2, tracking2);
 const shipment3 = new Shipment(3, "SHIP789", option3, address3, tracking3);
 
-// Seller
-const seller1 = new Seller(1, 'Sokha', 'sokha@gmail.com', 'sokhapass', address1);
-const seller2 = new Seller(2, 'Vannak', 'vannak@gmail.com', 'vannakpass', address2);
-const seller3 = new Seller(3, 'Ravy', 'ravy@gmail.com', 'ravypass', address3);
-
 // Store
-const store1 = new Store(1, 'Tech Haven', 'Your one-stop tech shop', address1, seller1);
-const store2 = new Store(2, 'Book Nook', 'Books for every reader', address2, seller2);
-const store3 = new Store(3, 'Fashion Hub', 'Latest trends in clothing', address3, seller3);
+const storeServices = new StoreServices();
+const store1 = new Store(1, 'Tech Haven', 'Your one-stop tech shop', address1);
+const store2 = new Store(2, 'Book Nook', 'Books for every reader', address2);
+const store3 = new Store(3, 'Fashion Hub', 'Latest trends in clothing', address3);
+
+// Seller
+const seller1 = new Seller(1, 'Sokha', 'sokha@gmail.com', 'sokhapass', address1, store1);
+const seller2 = new Seller(2, 'Vannak', 'vannak@gmail.com', 'vannakpass', address2, store2);
+const seller3 = new Seller(3, 'Ravy', 'ravy@gmail.com', 'ravypass', address3, store3);
 
 // Discount
 const discount1 = new Discount("percentage", 0.10, true, 0, true);
@@ -110,23 +111,26 @@ const discount2 = new Discount("fixed", 5, false, 20, true);
 const discount3 = new Discount("percentage", 0.2, true, 50, false);
 
 // Product
-const product1 = new Product(1, 'Smartphone', electronics, 299.99, 0.1, 50, seller1, store1);
-const product2 = new Product(2, 'Laptop', electronics, 899.99, 0.15, 30, seller1, store1);
-const product3 = new Product(3, 'Novel', books, 19.99, 0.05, 100, seller2, store2);
+const product1 = new Product(1, "Smartphone",electronics, 150, 100);
+const product2 = new Product(2, "Laptop", electronics, 899, 50, discount2);
+const product3 = new Product(3, "Novel", books, 19.99, 200, discount3);
 
-// OrderItem
-const orderItem1 = new OrderItem(product1, 2, shipment1, option1);
-const orderItem2 = new OrderItem(product2, 1, shipment2, option2);
-const orderItem3 = new OrderItem(product3, 3, shipment3, option3);
+storeServices.addProduct(store1, product1);
 
 // Customer
 const customer1 = new Customer(1, 'John Doe', 'johndoe@gmail.com', 'johnpass', address1);
 const customer2 = new Customer(2, 'Jane Smith', 'janesmith@gmail.com', 'janepass', address2);
 const customer3 = new Customer(3, 'Mike Johnson', 'mikejohnson@gmail.com', 'mikepass', address3);
 
+// OrderItem
+const orderItem1 = new OrderItem(product1, 2, shipment1, option1, seller1);
+const orderItem2 = new OrderItem(product2, 1, shipment2, option2, seller2);
+const orderItem3 = new OrderItem(product3, 3, shipment3, option3, seller3);
+// console.log(orderItem1);
+
 // Order
 const order1 = new Order(1, customer1, "Pending", [orderItem1]);
-const order2 = new Order(2, customer2, "Shipped", [orderItem2]);
+const order2 = new Order(2, customer2, "Shipped", [orderItem2, orderItem3]);
 const order3 = new Order(3, customer3, "Delivered", [orderItem3]);
 
 // Payment
@@ -157,10 +161,11 @@ const cart1 = new Cart(1, customer1);
 const cart2 = new Cart(2, customer2);
 const cart3 = new Cart(3, customer3);
 
-// later
-cart1.addItem(cartItem2);
-cart2.addItem(cartItem1);
-cart3.addItem(cartItem3);
+//Admin
+const admin = new Admin(100, 'SuperAdmin', 'admin@example.com', 'adminpass');
+const admin2 = new Admin(101, 'AdminJane', 'jane@example.com', 'janepass');
+const admin3 = new Admin(102, 'AdminMike', 'mike@example.com', 'mikepass');
+
 
 console.log("========== USERS ==========");
 console.log("Customer 1:", customer1);
@@ -232,27 +237,13 @@ console.log("Standard:", option1);
 console.log("Express:", option2);
 console.log("Same Day:", option3);
 
-
-
-
-
-
-
-
-
-
-
-
-
-//Admin
-// Create admin and service instance
-const admin = new Admin(100, 'SuperAdmin', 'admin@example.com', 'adminpass');
-const adminService = new AdminServices();
-
-// Create additional admin instances
-const admin2 = new Admin(101, 'AdminJane', 'jane@example.com', 'janepass');
-const admin3 = new Admin(102, 'AdminMike', 'mike@example.com', 'mikepass');
-console.log(admin.displayInfo());
+console.log("\n========== Admin ==========");
+console.log(admin);
 console.log(admin2);
 console.log(admin3);
+
+
+
+
+
 

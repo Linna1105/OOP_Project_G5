@@ -53,17 +53,6 @@ import { InvoiceServices } from "./services/invoice/InvoiceServices";
 // Delivery
 import { DeliveryOption } from "./models/Delivery/DeliveryOption";
 import { DeliveryType } from "./models/Delivery/DeliveryType";
-<<<<<<< HEAD
-import { Shipment } from "./models/shipment/Shipment";
-import { ShipmentTracking } from "./models/shipment/ShipmentTracking";
-import { ShipmentServices } from "./services/shipment/ShipmentServices";
-import { ShipmentTrackingServices } from "./services/shipment/ShipmentTrackingServices";
-import { Admin } from './models/user/Admin';
-import { AdminServices } from './services/user/AdminServices';
-import { Order } from './models/order/Order';
-import { AuditLogService } from './services/user/AuditLogServices';
-
-=======
 
 // Cart
 import { Cart } from "./models/cart/Cart";
@@ -170,7 +159,8 @@ const cart3 = new Cart(3, customer3);
 cart1.addItem(cartItem2);
 cart2.addItem(cartItem1);
 cart3.addItem(cartItem3);
->>>>>>> 7025633ce3cbbb1edf46bf08c98ef9e8cc35b9f8
+
+
 
 
 const address = new Address("123 Main St", "Springfield", "IL", "62704", "USA");
@@ -204,8 +194,6 @@ console.log("Order Item:", item);
 console.log("Order:", order);
 
 
-
-
 //Admin
 // Create admin and service instance
 const admin = new Admin(100, 'SuperAdmin', 'admin@example.com', 'adminpass');
@@ -217,10 +205,3 @@ const admin3 = new Admin(102, 'AdminMike', 'mike@example.com', 'mikepass');
 console.log(admin.displayInfo());
 console.log(admin2);
 console.log(admin3);
-
-
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 7025633ce3cbbb1edf46bf08c98ef9e8cc35b9f8
